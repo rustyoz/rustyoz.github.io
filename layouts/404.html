@@ -36,12 +36,10 @@
                     <span class="icon-facebook" style="color:white;font-size:2em"></span>
                 </a>
             {{end}}
-            <h1 class="page-title">{{ .Site.Title }}</h1>
+            <h1 class="page-title">Well this is awkward...</h1>
             <h2 class="page-description">{{ .Site.Params.description }}</h2>
 
-			{{.Scratch.Add "dir" "static/photos"}}
-            {{.Scratch.Add "url" "photos"}}
-			{{partial "gallery-home.html" .}}
+			
 
 			
 			
