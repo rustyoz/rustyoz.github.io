@@ -1,0 +1,36 @@
+baseurl = "rustyoz.github.io"
+languageCode = "en-au"
+title = "Russell Oliver"
+Copyright = "All rights reserved - 2024"
+disableLiveReload = false
+disableRSS = true
+disableSitemap = true
+pluralizelisttitles = false
+[params]
+  cover = "images/cover.jpg"
+  logo = "images/logo.png"
+  logo2 = "images/logo2.png"
+  # Optional RSS-Link, if not provided it defaults to the standard index.xml
+  githubName = "rustyoz"
+  twitterName = "rustyoliver"
+   facebookName = "russelloliver"
+  # set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
+  hideHUGOSupport = false
+ 
+ [[menu.main]]
+  name = "Home"
+  weight = -130
+  identifier = "home"
+  url = "/"
+  
+[[menu.main]]
+  name = "Blog"
+  weight = -120
+  identifier = "blog"
+  url = "/blog/"
+  
+[[menu.main]]
+  name = "Photography"
+  weight = -120
+  identifier = "photography"
+  url = "/photography/"
