@@ -1,7 +1,7 @@
 <div id="links" style="display: none">
 {{$dir := .Scratch.Get "dir" }}
 {{$url := .Scratch.Get "url" }}
-{{ $images := ReadDir  $dir }}
+{{ $images := readDir   $dir }}
 {{ range $images }}
 			<a href="{{$url }}/{{.Name | urlize }}">
 			</a>
