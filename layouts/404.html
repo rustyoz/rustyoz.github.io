@@ -1,53 +1,5 @@
 {{ partial "header.html" . }}
 
-{{if .Site.Params.cover}}
-<header class="main-header " style="background-image: url({{.Site.BaseUrl}}{{.Site.Params.cover}})">
-{{else}}
-<header class="main-header no-cover">
-{{end}}
-    
-    <nav class="main-nav overlay clearfix">
-        {{ if .Site.Params.logo }}
-            <a class="blog-logo" href="{{ .Permalink }}"><img src="{{.Site.BaseUrl}}{{ .Site.Params.logo }}" alt="Blog Logo" /></a>
-        {{end}}
-        {{ if .Site.Menus.main }}
-            <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-        
-		
-		
-        {{end}}
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            {{ if .Site.Params.githubName }}
-                <a class="bloglogo" href="https://github.com/{{ .Site.Params.githubName }}">
-                <span class="icon-github" style="color:white;font-size:2em"></span>
-                </a>
-            {{end}}
-            
-            {{ if .Site.Params.twitterName }}
-                <a class="bloglogo" href="https://twitter.com/{{ .Site.Params.twitterName }}">
-                    <span class="icon-twitter" style="color:white;font-size:2em"></span>
-                </a>
-            {{end}}
-			
-			{{ if .Site.Params.facebookName }}
-                <a class="bloglogo" href="https://facebook.com/{{ .Site.Params.facebookName }}">
-                    <span class="icon-facebook" style="color:white;font-size:2em"></span>
-                </a>
-            {{end}}
-            <h1 class="page-title">Well this is awkward...</h1>
-            <h2 class="page-description">{{ .Site.Params.description }}</h2>
-
-			
-
-			
-			
-
-        </div>
-    </div>
-    
-</header>
-
+404 - You once were found. But now you're lost.
 
 {{ partial "footer.html" . }}

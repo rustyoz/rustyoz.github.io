@@ -1,88 +1,48 @@
 <!DOCTYPE html>
-<html lang="{{.Site.LanguageCode}}">
-<head>
-    
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
 
-  	<meta property="og:title" content="{{ if ne .RelPermalink "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}" />
-  	<meta property="og:site_name" content="{{ .Site.Title }}" />
-  	<meta property="og:url" content="{{ .Permalink }}" />
-    
-    
-    {{ if .IsPage }}
-  	<meta property="og:type" content="article" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
 
-    <meta property="og:article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+    {{ range .Site.Params.custom_css -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+    {{- end }}
+    {{ partial "head_custom.html" . }}
+  </head>
 
-    {{ range .Params.tags }}
-    <meta property="og:article:tag" content="{{ . }}" />
-    {{ end }}
-    {{ else }}
-    <meta property="og:type" content="website" />
-    {{ end }}
+  <body>
+    <header>
+      <nav>
+        <ul>
+          {{ $title := lower .Title }}
+          {{ $section := lower .Section }}
+          <li class="pull-left {{ if .IsHome }}current{{ end }}">
+            <a href="{{ .Site.BaseURL }}">~/{{ lower .Site.Title}}</a>
+          </li>
+          {{ range .Site.Menus.main }}
+          {{ $name := lower .Name }}
+          <li class="pull-left {{ if eq $name $title }}current{{ else if eq $section $name }}current{{ else if eq $title (pluralize $name) }}current{{ end }}">
+            <a href="{{ .URL }}">~/{{ lower .Name }}</a>
+          </li>
+          {{end}}
 
-  <title>
-    {{ if ne .RelPermalink "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}
-  </title>
+          {{ range .Site.Menus.feed }}
+          {{ $name := lower .Name}}
+          <li class="pull-right">
+            <a href="{{ .URL }}">~/{{ lower .Name}}</a>
+          </li>
+          {{end}}
 
-    <meta name="description" content="{{ .Site.Params.description }}" />
+        </ul>
+      </nav>
+    </header>
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
-    <link rel="icon" href="/images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-    
-    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
-	<link rel="stylesheet" type="text/css" href="/fonts/genericons.css" />
-	<link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-    
-	<link rel="stylesheet" href="/static/css/blueimp-gallery.css">
-	<script src="/static/js/jquery.blueimp-gallery.js"></script>
-	<script src="/static/js/blueimp-gallery.js"></script>
-    
-    {{if .IsHome }}
-    <link rel="stylesheet" type="text/css" href="/static/css/homepage.css" />
-    {{ end }}
-
-	
-	<script>
-
-</script>
-
-    {{ if .Site.Params.RSSLink}}
-        <link href="{{.Site.Params.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-    {{else}}
-      {{ if ne .RelPermalink "/" }}
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-      {{ end }}
-      {{if .IsNode}}
-        <link href="{{.RSSLink}}" rel="alternate" type="application/rss+xml" title="{{ if ne .RelPermalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
-      {{end}}
-    {{end}}
-    {{.Hugo.Generator}}
-
-    <link rel="canonical" href="{{ .Permalink }}" />
-
-    {{with  .Site.Params.googleAnalyticsUserID }}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '{{.}}', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    {{end}}
-</head>
-<body class="nav-closed">
-
-  {{ partial "navigation.html" . }}
-
- <div class="site-wrapper">
