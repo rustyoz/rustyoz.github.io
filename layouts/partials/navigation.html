@@ -6,7 +6,7 @@
     <ul>
         {{ range .Site.Menus.main }}
             <li class="nav-opened " role="presentation">
-            	<a href="{{.Url}}">{{.Name}}</a>
+            	<a href="{{RelPermalink}}">{{.Name}}</a>
             </li>
         {{end}}
     </ul>

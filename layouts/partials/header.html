@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  	<meta property="og:title" content="{{ if ne .Url "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}" />
+  	<meta property="og:title" content="{{ if ne RelPermalink "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}" />
   	<meta property="og:site_name" content="{{ .Site.Title }}" />
   	<meta property="og:url" content="{{ .Permalink }}" />
     
@@ -23,7 +23,7 @@
     {{ end }}
 
   <title>
-    {{ if ne .Url "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}
+    {{ if ne RelPermalink "/" }} {{ .Title }} &middot; {{ end }} {{ .Site.Title }}
   </title>
 
     <meta name="description" content="{{ .Site.Params.description }}" />
@@ -57,11 +57,11 @@
     {{ if .Site.Params.RSSLink}}
         <link href="{{.Site.Params.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{else}}
-      {{ if ne .Url "/" }}
+      {{ if ne RelPermalink "/" }}
           <link href="{{ .Site.BaseUrl }}index.xml" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
       {{ end }}
       {{if .IsNode}}
-        <link href="{{.RSSLink}}" rel="alternate" type="application/rss+xml" title="{{ if ne .Url "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
+        <link href="{{.RSSLink}}" rel="alternate" type="application/rss+xml" title="{{ if ne RelPermalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
       {{end}}
     {{end}}
     {{.Hugo.Generator}}
