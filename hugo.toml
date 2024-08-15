@@ -11,15 +11,27 @@ min = "0.116.0"
 [params]
   githubName = "rustyoz"
   twitterName = "rustyoliver"
-   facebookName = "russelloliver"
- [[menu.main]]
-  name = "Home"
-  weight = -130
-  identifier = "home"
-  url = "/"
-  
-[[menu.main]]
-  name = "Blog"
-  weight = -120
-  identifier = "blog"
-  url = "/blog/"
+  facebookName = "russelloliver"
+  homeCollectionTitle = 'Posts'
+  homeCollection = 'posts'
+ 
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/russelloliver2"
+
+[[params.social]]
+name = "twitter"
+url = "https://x.com/@rusty_oliver"
+
+
+[[params.social]]
+name = "github"
+url = "https://github.com/@rustyozs"
