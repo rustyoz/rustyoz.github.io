@@ -42,7 +42,7 @@
     {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection
     }}
 
-    {{ $paginationSize := 1}}
+    {{ $paginationSize := 100}}
     {{ if (gt .Site.Params.paginationSize 0) }}
     {{ $paginationSize = .Site.Params.paginationSize }}
     {{ end }}
