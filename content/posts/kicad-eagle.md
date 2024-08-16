@@ -1,6 +1,6 @@
 ---
 title: "Working for CERN (just a little)"
-date: "2023-08-16"
+date: "2024-08-16"
 summary: "That time I worked for CERN working on Kicad"
 description: "I was fortunate enough to be selected for a work package updating the Eagle importer for KiCad to include schematic imports"
 toc: true

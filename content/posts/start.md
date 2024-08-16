@@ -1,6 +1,6 @@
 ---
 title: "Start"
-date: "2023-08-15"
+date: "2024-08-15"
 summary: "Start of Blog"
 description: "Start of more ramblings"
 toc: true
