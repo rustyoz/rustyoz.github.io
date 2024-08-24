@@ -23,6 +23,10 @@ url = "/"
 name = "posts"
 url = "/posts"
 
+[[params.menu]]
+name = "photography"
+url = "/photography"
+
 [[params.social]]
 name = "linkedin"
 url = "https://www.linkedin.com/in/russelloliver2"

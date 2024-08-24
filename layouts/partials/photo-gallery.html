@@ -1,0 +1,11 @@
+<div class="photo-gallery">
+    {{ $gallery := .gallery }}
+    {{ range (readDir (printf "static/images/photos/%s" $gallery)) }}
+        {{ $imagePath := printf "/images/photos/%s/%s" $gallery .Name }}
+        <div class="gallery-item">
+            <a href="{{ $imagePath }}" data-lightbox="{{ $gallery }}" data-title="{{ .Name }}">
+                <img src="{{ $imagePath }}" alt="{{ .Name }}" loading="lazy">
+            </a>
+        </div>
+    {{ end }}
+</div>
