@@ -10,7 +10,9 @@
 
     {{/* Title and Summary */}}
 
+    {{ if not .Params.hideTitle }}
     <h1 class="single-title">{{ .Title }}</h1>
+    {{ end}}
     {{ with .Param "summary" }}
     <p class="single-summary">{{ . }}</p>
     {{ end }}

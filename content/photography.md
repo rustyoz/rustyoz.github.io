@@ -1,10 +1,7 @@
 +++
 title = "Russell's Photography"
 draft = false
+[params]
+    hideTitle = true
 +++
-
-# My Photography Gallery
-
-Here's a collection of my favorite photographs:
-
 {{< photo-gallery gallery="gallery1" >}}

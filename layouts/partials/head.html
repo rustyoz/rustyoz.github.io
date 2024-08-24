@@ -15,7 +15,9 @@
     {{ if .IsHome }}
     {{ site.Title }}
     {{ else }}
+    {{ if not .Params.hideTitle }}
     {{ printf "%s | %s" .Title site.Title }}
+    {{ end }}
     {{ end }}
 </title>
 
@@ -32,4 +34,3 @@
   {{ partial "umami.html" . }}
 {{ end }}
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />

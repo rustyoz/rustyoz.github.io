@@ -1,11 +1,12 @@
-<div class="photo-gallery">
-    {{ $gallery := .gallery }}
-    {{ range (readDir (printf "static/images/photos/%s" $gallery)) }}
-        {{ $imagePath := printf "/images/photos/%s/%s" $gallery .Name }}
-        <div class="gallery-item">
-            <a href="{{ $imagePath }}" data-lightbox="{{ $gallery }}" data-title="{{ .Name }}">
-                <img src="{{ $imagePath }}" alt="{{ .Name }}" loading="lazy">
-            </a>
-        </div>
-    {{ end }}
-</div>
+
+  <div class="carousel">
+      <div class="carousel-container">
+          {{ $gallery := .gallery }}
+          {{ range (readDir (printf "static/images/photos/%s" $gallery)) }}
+              {{ $imagePath := printf "/images/photos/%s/%s" $gallery .Name }}
+              <img src="{{ $imagePath }}" alt="{{ .Name }}" loading="lazy">
+          {{ end }}
+      </div>
+      <button class="carousel-button prev" aria-label="Previous image"><</button>
+      <button class="carousel-button next" aria-label="Next image">></button>
+  </div>
