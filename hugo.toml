@@ -29,6 +29,10 @@ url = "/posts"
 name = "photography"
 url = "/photography"
 
+[[params.menu]]
+name = "projects"
+url = "/projects"
+
 [[params.social]]
 name = "linkedin"
 url = "https://www.linkedin.com/in/russelloliver2"

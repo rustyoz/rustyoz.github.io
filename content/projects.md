@@ -1,11 +1,9 @@
 +++
-title = "My GitHub Projects"
+title = "Projects"
 draft = false
 +++
 
-# My GitHub Repositories
-
-Here's a list of my public repositories on GitHub:
+# Github Repo's
 
 ## [bxl](https://github.com/rustyoz/bxl)
 A tool written in Go to convert Ultra-librarian format (.bxl) to KiCad symbols and footprints.
