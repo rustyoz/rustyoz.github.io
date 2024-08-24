@@ -1,1 +1,16 @@
 .DS_Store
+
+# Hugo default output directory
+/public/
+
+# Hugo generated files
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
+
+# Temporary lock file while building
+/.hugo_build.lock
+
+# OS generated files
+.DS_Store
+Thumbs.db
